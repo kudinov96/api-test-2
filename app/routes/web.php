@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Car;
 use Illuminate\Support\Facades\Route;
 
 /*

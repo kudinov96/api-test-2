@@ -1,0 +1,100 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Booking API Documentation",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/booking": {
+            "post": {
+                "tags": [
+                    "Booking"
+                ],
+                "operationId": "6e394263deaf8dd86c87cad1e1439c8a",
+                "parameters": [
+                    {
+                        "name": "car_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "date_start",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date_end",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "422": {
+                        "description": "Validation errors"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Booking": {
+                "title": "Booking",
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "car_id": {
+                        "title": "car_id",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "user_id": {
+                        "title": "user_id",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "date_start": {
+                        "title": "date_start",
+                        "format": "datetime",
+                        "example": "2020-01-27 17:50:45"
+                    },
+                    "date_end": {
+                        "title": "date_end",
+                        "format": "datetime",
+                        "example": "2020-01-27 17:50:45"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Booking"
+                }
+            }
+        }
+    }
+}
