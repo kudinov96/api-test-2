@@ -54,6 +54,29 @@
                     }
                 }
             }
+        },
+        "/api/booking/{id}": {
+            "delete": {
+                "tags": [
+                    "Booking"
+                ],
+                "operationId": "7840036bd9687ca947322ebf0a4fd64e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
         }
     },
     "components": {

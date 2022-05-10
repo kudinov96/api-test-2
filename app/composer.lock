@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db3455a50557286040ed9a7e96d2a140",
+    "content-hash": "85cea7c1bd0e1e2a328185aa29284fe2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -514,6 +514,92 @@
                 }
             ],
             "time": "2022-02-28T11:07:21+00:00"
+        },
+        {
+            "name": "dragon-code/laravel-json-response",
+            "version": "v2.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TheDragonCode/laravel-json-response.git",
+                "reference": "b79852d8f3a0b6bb011a32969f931a5537de207c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TheDragonCode/laravel-json-response/zipball/b79852d8f3a0b6bb011a32969f931a5537de207c",
+                "reference": "b79852d8f3a0b6bb011a32969f931a5537de207c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^6.0 || ^7.0 || ^8.0 || ^9.0",
+                "illuminate/http": "^6.0 || ^7.0 || ^8.0 || ^9.0",
+                "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0",
+                "lmc/http-constants": "^1.2",
+                "php": "^7.3 || ^8.0",
+                "symfony/http-foundation": "^4.3 || ^5.0 || ^6.0"
+            },
+            "conflict": {
+                "andrey-helldar/laravel-json-response": "*"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0 || ^5.0 || ^6.0 || ^7.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DragonCode\\LaravelJsonResponse\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DragonCode\\LaravelJsonResponse\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Helldar",
+                    "email": "helldar@ai-rus.com"
+                }
+            ],
+            "description": "Automatically always return a response in JSON format",
+            "keywords": [
+                "andrey-helldar",
+                "api",
+                "dragon",
+                "dragon-code",
+                "json",
+                "laravel",
+                "response"
+            ],
+            "support": {
+                "issues": "https://github.com/TheDragonCode/laravel-json-response/issues",
+                "source": "https://github.com/TheDragonCode/laravel-json-response"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/helldar",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://yoomoney.ru/to/410012608840929",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://opencollective.com/dragon-code",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://www.patreon.com/andrey_helldar",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2022-02-11T22:19:49+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -1810,6 +1896,52 @@
                 }
             ],
             "time": "2022-04-17T13:12:02+00:00"
+        },
+        {
+            "name": "lmc/http-constants",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lmc-eu/http-constants.git",
+                "reference": "8cb0fbffdafdf0c0c42e05935fb09cc588633d48"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lmc-eu/http-constants/zipball/8cb0fbffdafdf0c0c42e05935fb09cc588633d48",
+                "reference": "8cb0fbffdafdf0c0c42e05935fb09cc588633d48",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.8",
+                "lmc/coding-standard": "^2.0.3",
+                "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpunit/phpunit": "^8.1 || ^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lmc\\HttpConstants\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "HTTP Header Fields Constants",
+            "keywords": [
+                "constants",
+                "http",
+                "request",
+                "response"
+            ],
+            "support": {
+                "issues": "https://github.com/lmc-eu/http-constants/issues",
+                "source": "https://github.com/lmc-eu/http-constants/tree/main"
+            },
+            "time": "2020-09-01T11:14:36+00:00"
         },
         {
             "name": "monolog/monolog",

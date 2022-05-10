@@ -65,6 +65,24 @@ class BookingController extends Controller
         return new BookingResource($item);
     }
 
+    /**
+     * @OA\Delete  (
+     *     path="/api/booking/{id}",
+     *     tags={"Booking"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response="200",
+     *         description="Success",
+     *     )
+     * )
+     */
     public function delete(int $id, Request $request, DeleteBooking $action): SuccessResource
     {
         $item = $this->stateItem($id);

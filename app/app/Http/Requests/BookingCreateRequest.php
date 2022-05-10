@@ -5,7 +5,9 @@ namespace App\Http\Requests;
 use App\Rules\FreeCarRule;
 use App\Rules\FreeUserRule;
 use Carbon\Carbon;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 /**
  * @property integer $car_id
@@ -37,16 +39,22 @@ class BookingCreateRequest extends FormRequest
                 "required",
                 "integer",
                 "exists:cars,id",
-                new FreeCarRule($this->car_id, $this->date_start, $this->date_end),
             ],
             "user_id"    => [
                 "required",
                 "integer",
                 "exists:users,id",
-                new FreeUserRule($this->user_id, $this->date_start, $this->date_end),
+                new FreeUserRule(),
             ],
             "date_start" => "required|date",
             "date_end"   => "required|date",
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json([
+            "errors" => $validator->errors(),
+        ], 422));
     }
 }

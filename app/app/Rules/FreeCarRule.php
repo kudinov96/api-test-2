@@ -3,34 +3,13 @@
 namespace App\Rules;
 
 use App\Models\Car;
+use Illuminate\Contracts\Validation\DataAwareRule;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Database\Eloquent\Builder;
 
-class FreeCarRule implements Rule
+class FreeCarRule implements Rule, DataAwareRule
 {
-    private Car    $car;
-    private string $date_start;
-    private string $date_end;
-
-    /**
-     * Create a new rule instance.
-     *
-     * @return void
-     */
-    public function __construct($car_id, $date_start, $date_end)
-    {
-        if ($car_id !== null) {
-            $this->car = Car::find($car_id);
-        }
-
-        if ($date_start !== null) {
-            $this->date_start = $date_start;
-        }
-
-        if ($date_end !== null) {
-            $this->date_end = $date_end;
-        }
-    }
+    private array $data;
 
     /**
      * Determine if the validation rule passes.
@@ -41,10 +20,14 @@ class FreeCarRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        $count = $this->car->bookings()
+        $car = Car::find((int) $this->data["car_id"]);
+
+        if (!$car) return true;
+
+        $count = $car->bookings()
             ->where(function (Builder $query) {
-                return $query->whereBetween("date_start", [$this->date_start, $this->date_end])
-                    ->orWhereBetween("date_end", [$this->date_start, $this->date_end]);
+                return $query->whereBetween("date_start", [$this->data["date_start"], $this->data["date_end"]])
+                    ->orWhereBetween("date_end", [$this->data["date_start"], $this->data["date_end"]]);
             })->count();
 
         if ($count > 0) {
@@ -62,5 +45,12 @@ class FreeCarRule implements Rule
     public function message()
     {
         return 'This car is already booked.';
+    }
+
+    public function setData($data)
+    {
+        $this->data = $data;
+
+        return $this;
     }
 }

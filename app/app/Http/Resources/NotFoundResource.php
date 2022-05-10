@@ -15,7 +15,6 @@ class NotFoundResource extends JsonResource
     public function toArray($request)
     {
         return [
-            "success" => false,
             "error"   => "Not found",
         ];
     }
