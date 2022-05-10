@@ -12,6 +12,7 @@
 ### Commands:
 **Run seeders:** bash artisan db:seed<br>
 **Run tests:** bash artisan test<br>
+**Generate api doc:** bash artisan l5-swagger:generate
 
 http://localhost/ <br>
 http://localhost/api/documentation
